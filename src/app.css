@@ -1,0 +1,90 @@
+:root {
+  --bg-color: #31415f;
+  --text-color: #ffffff;
+  --blue: #0453f4;
+  --orange: #eb5630;
+  --purple: #776afb;
+  --green: #4fe070;
+  --border-radius: 4px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  /* Multiple backgrounds: radial dark overlay + discreet football field illustration */
+  background-image:
+    radial-gradient(circle at center, rgba(49, 65, 95, 0.4) 0%, rgba(49, 65, 95, 0.92) 100%), url("/field_bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--text-color);
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  min-height: 100vh;
+  overflow: hidden; /* Fits in a single screen */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.button {
+  background: var(--blue);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    opacity 0.2s,
+    transform 0.1s;
+  outline: none;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.button-alt {
+  background: var(--orange);
+}
+
+.input {
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.input:focus {
+  border-color: var(--blue);
+}
+
+/* Animations */
+@keyframes pop-in {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-pop {
+  animation: pop-in 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
